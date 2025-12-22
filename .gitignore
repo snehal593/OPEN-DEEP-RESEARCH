@@ -1,0 +1,20 @@
+*# 1. API Secrets (MOST IMPORTANT)
+.streamlit/secrets.toml
+
+# 2. Virtual Environment
+.venv/
+venv/
+env/
+
+# 3. Python Cache
+__pycache__/
+*.py[cod]
+
+# 4. Chat History Databases
+chat_history.db.bak
+chat_history.db.dat
+chat_history.db.dir
+
+# 5. OS Files (Prevents "junk" files from Mac/Windows)
+.DS_Store
+Thumbs.db

@@ -1,0 +1,9 @@
+streamlit
+groq
+tavily-python
+langgraph
+pydantic
+beautifulsoup4
+requests
+pypdf
+python-docx
