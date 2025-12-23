@@ -1,33 +1,35 @@
 #This is the entry point for Streamlit. Run it using streamlit run main.py.
 import os
-import streamlit as st
+
 import streamlit as st
 
-# 1. CSS to hide default branding and style your custom footer
+# Custom CSS to hide the icons and show your name clearly
 hide_st_style = """
             <style>
-            
+            #GithubIcon {visibility: hidden;}
+            .viewerBadge_container__1QS1o {display: none;}
             footer {visibility: hidden;}
             
-            #GithubIcon {visibility: hidden;}
-            
+            /* This styles your name at the bottom */
             .custom-footer {
                 position: fixed;
                 left: 0;
                 bottom: 0;
                 width: 100%;
-                background-color: transparent;
-                color: gray;
+                background-color: rgba(14, 17, 23, 0.8); /* Matches dark theme */
+                color: #ffffff;
                 text-align: center;
-                padding: 10px;
+                padding: 5px 0;
                 font-size: 14px;
+                font-weight: bold;
+                z-index: 999999; /* Higher number ensures it's on top */
             }
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-# 2. Add your custom "Designed by" message
-st.markdown('<div class="custom-footer">Designed with ❤️ by Snehal Sonkamble</div>', unsafe_allow_html=True)
+# This adds the actual text
+st.markdown('<div class="custom-footer">Designed with ❤️ by Snehal Somkamble</div>', unsafe_allow_html=True)
 
 from datetime import datetime
 from groq import Groq
