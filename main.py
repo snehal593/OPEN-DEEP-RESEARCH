@@ -3,37 +3,22 @@ import os
 
 import streamlit as st
 
-# Extra-strength CSS to remove the specific icons you circled
+# This code hides the GitHub icon AND the entire bottom bar (Crown/Globe/Footer)
 hide_st_style = """
             <style>
-            /* 1. Hide GitHub Icon and 'Fork' text (Top Right) */
-            #GithubIcon, .st-emotion-cache-12fmjuu {display: none !important;}
-            
-            /* 2. Hide the Globe and Red Crown containers (Bottom Right) */
+            #GithubIcon {visibility: hidden;}
+            #MainMenu {visibility: visible;} 
+            header {visibility: hidden;}
+            footer {visibility: hidden;}
             div[data-testid="stStatusWidget"] {display: none !important;}
             .stAppDeployButton {display: none !important;}
-            [data-testid="stConnectionStatus"] {display: none !important;}
-            
-            /* 3. Your name styling - anchored to the bottom */
-            .custom-footer {
-                position: fixed;
-                left: 0;
-                bottom: 0;
-                width: 100%;
-                background-color: #0e1117;
-                color: #FAFAFA;
-                text-align: center;
-                padding: 10px 0;
-                font-size: 14px;
-                font-weight: 500;
-                z-index: 999999;
-            }
+            [data-testid="stDecoration"] {display: none !important;}
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
 
-st.markdown('<div class="custom-footer">Designed with ❤️ by Snehal Sonkamble</div>', unsafe_allow_html=True)
+
 
 from datetime import datetime
 from groq import Groq
