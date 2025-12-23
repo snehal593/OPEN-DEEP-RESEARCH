@@ -3,35 +3,36 @@ import os
 
 import streamlit as st
 
-# Custom CSS to hide the icons and clean up the footer
+# Extra-strength CSS to remove the specific icons you circled
 hide_st_style = """
             <style>
-            /* 1. Hide GitHub Icon (Top Right) */
-            #GithubIcon {visibility: hidden;}
+            /* 1. Hide GitHub Icon and 'Fork' text (Top Right) */
+            #GithubIcon, .st-emotion-cache-12fmjuu {display: none !important;}
             
-            /* 2. Hide the Red Crown and Globe Icons (Bottom Right) */
-            div[data-testid="stStatusWidget"] {visibility: hidden;}
+            /* 2. Hide the Globe and Red Crown containers (Bottom Right) */
+            div[data-testid="stStatusWidget"] {display: none !important;}
             .stAppDeployButton {display: none !important;}
+            [data-testid="stConnectionStatus"] {display: none !important;}
             
-            /* 3. Style your custom name to be centered and clear */
+            /* 3. Your name styling - anchored to the bottom */
             .custom-footer {
                 position: fixed;
                 left: 0;
                 bottom: 0;
                 width: 100%;
-                background-color: #0e1117; /* Matches Streamlit Dark Theme */
+                background-color: #0e1117;
                 color: #FAFAFA;
                 text-align: center;
                 padding: 10px 0;
                 font-size: 14px;
                 font-weight: 500;
-                z-index: 9999;
+                z-index: 999999;
             }
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-# The actual text that will appear
+
 st.markdown('<div class="custom-footer">Designed with ❤️ by Snehal Sonkamble</div>', unsafe_allow_html=True)
 
 from datetime import datetime
