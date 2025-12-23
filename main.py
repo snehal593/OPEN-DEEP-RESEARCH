@@ -8,7 +8,7 @@ hide_st_style = """
             <style>
             
             footer {visibility: hidden;}
-            header {visibility: hidden;}
+            
             #GithubIcon {visibility: hidden;}
             
             .custom-footer {
