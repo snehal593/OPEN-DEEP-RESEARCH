@@ -3,33 +3,36 @@ import os
 
 import streamlit as st
 
-# Custom CSS to hide the icons and show your name clearly
+# Custom CSS to hide the icons and clean up the footer
 hide_st_style = """
             <style>
+            /* 1. Hide GitHub Icon (Top Right) */
             #GithubIcon {visibility: hidden;}
-            .viewerBadge_container__1QS1o {display: none;}
-            footer {visibility: hidden;}
             
-            /* This styles your name at the bottom */
+            /* 2. Hide the Red Crown and Globe Icons (Bottom Right) */
+            div[data-testid="stStatusWidget"] {visibility: hidden;}
+            .stAppDeployButton {display: none !important;}
+            
+            /* 3. Style your custom name to be centered and clear */
             .custom-footer {
                 position: fixed;
                 left: 0;
                 bottom: 0;
                 width: 100%;
-                background-color: rgba(14, 17, 23, 0.8); /* Matches dark theme */
-                color: #ffffff;
+                background-color: #0e1117; /* Matches Streamlit Dark Theme */
+                color: #FAFAFA;
                 text-align: center;
-                padding: 5px 0;
+                padding: 10px 0;
                 font-size: 14px;
-                font-weight: bold;
-                z-index: 999999; /* Higher number ensures it's on top */
+                font-weight: 500;
+                z-index: 9999;
             }
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-# This adds the actual text
-st.markdown('<div class="custom-footer">Designed with ❤️ by Snehal Somkamble</div>', unsafe_allow_html=True)
+# The actual text that will appear
+st.markdown('<div class="custom-footer">Designed with ❤️ by Snehal Sonkamble</div>', unsafe_allow_html=True)
 
 from datetime import datetime
 from groq import Groq
