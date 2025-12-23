@@ -6,7 +6,7 @@ import streamlit as st
 # 1. CSS to hide default branding and style your custom footer
 hide_st_style = """
             <style>
-            #MainMenu {visibility: hidden;}
+            
             footer {visibility: hidden;}
             header {visibility: hidden;}
             #GithubIcon {visibility: hidden;}
