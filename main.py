@@ -1,6 +1,34 @@
 #This is the entry point for Streamlit. Run it using streamlit run main.py.
 import os
 import streamlit as st
+import streamlit as st
+
+# 1. CSS to hide default branding and style your custom footer
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            #GithubIcon {visibility: hidden;}
+            
+            .custom-footer {
+                position: fixed;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                background-color: transparent;
+                color: gray;
+                text-align: center;
+                padding: 10px;
+                font-size: 14px;
+            }
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
+
+# 2. Add your custom "Designed by" message
+st.markdown('<div class="custom-footer">Designed with ❤️ by Snehal Sonkamble</div>', unsafe_allow_html=True)
+
 from datetime import datetime
 from groq import Groq
 from tavily import TavilyClient
