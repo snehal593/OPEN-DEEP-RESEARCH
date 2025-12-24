@@ -88,7 +88,6 @@ ________________________________________
 
 •	Multi-Modality: Enabling the agent to "see" and describe charts/graphs within uploaded PDFs.
 
-•	Asynchronous Processing: Speeding up the search agent by 300% using asyncio for parallel web requests.
 ________________________________________
 **9. Deployed Project Link**
     
