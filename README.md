@@ -7,7 +7,9 @@ OpenDeepResearcher is an autonomous AI-driven research assistant designed to bri
 **Core Objective:** To simulate a human researcher’s cognitive process—breaking down complex queries into logical sub-tasks, retrieving verified data from credible sources, and producing a grounded, hallucination-free summary.
 ________________________________________
 **2. Software and Hardware Dependencies**
+
 **Software Dependencies**
+
 •	Programming Language: Python 3.10+
 
 •	Orchestration Framework: LangGraph (for state machine management)
@@ -22,7 +24,9 @@ ________________________________________
 
 •	Validation: Pydantic (for structured JSON outputs)
 
+
 **Hardware Dependencies**
+
 •	Minimum: 8GB RAM | Dual-core CPU.
 
 •	Optimal: 16GB RAM (for concurrent agent processing).
