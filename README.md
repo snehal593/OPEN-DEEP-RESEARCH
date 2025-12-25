@@ -39,7 +39,6 @@ ________________________________________
 |**Bash**|
 |---     |
 |git clone https://github.com/your-username/OpenDeepResearcher.git|
-|---     |
 |cd OpenDeepResearcher|
 
 **b. Create a Virtual environment:**
