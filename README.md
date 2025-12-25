@@ -70,7 +70,7 @@ ________________________________________
 7. Outputs / Results
  
  
- <img width="1920" height="1020" alt="Screenshot 2025-12-25 162058" src="https://github.com/user-attachments/assets/0951980b-17f2-4e53-9169-1e121b8bb2fb" />
+ <img width="200" height="200" alt="Screenshot 2025-12-25 162058" src="https://github.com/user-attachments/assets/0951980b-17f2-4e53-9169-1e121b8bb2fb" />
 
  <img width="1920" height="1020" alt="Screenshot 2025-12-25 162233" src="https://github.com/user-attachments/assets/64638388-4bf5-4dc3-bd6d-f28f5778bc06" />
 
