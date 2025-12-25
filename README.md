@@ -36,11 +36,11 @@ ________________________________________
 
 **a. Clone the repository:**
 
-**Bash**
-
-git clone https://github.com/your-username/OpenDeepResearcher.git
-
-cd OpenDeepResearcher
+|**Bash**|
+|---     |
+|git clone https://github.com/your-username/OpenDeepResearcher.git|
+|---     |
+|cd OpenDeepResearcher|
 
 **b. Create a Virtual environment:**
 
@@ -64,7 +64,7 @@ streamlit run main.py
 ________________________________________
 **3. Architecture Diagram**
    
- <img width="800" height="300" alt="Screenshot 2025-12-25 164810" src="https://github.com/user-attachments/assets/c6c7ba9d-2a72-493e-876b-0c7187ff2d9a" />
+ <img width="800" height="400" alt="Screenshot 2025-12-25 164810" src="https://github.com/user-attachments/assets/c6c7ba9d-2a72-493e-876b-0c7187ff2d9a" />
 
 ________________________________________
 **4. Workflow**
@@ -105,15 +105,15 @@ ________________________________________
 ________________________________________
 **7. Outputs / Results**
 
-<img width="500" height="300" alt="Screenshot 2025-12-25 162058" src="https://github.com/user-attachments/assets/0951980b-17f2-4e53-9169-1e121b8bb2fb" />
+<img width="800" height="400" alt="Screenshot 2025-12-25 162058" src="https://github.com/user-attachments/assets/0951980b-17f2-4e53-9169-1e121b8bb2fb" />
 
-<img width="500" height="300" alt="Screenshot 2025-12-25 162233" src="https://github.com/user-attachments/assets/64638388-4bf5-4dc3-bd6d-f28f5778bc06" />
+<img width="800" height="400" alt="Screenshot 2025-12-25 162233" src="https://github.com/user-attachments/assets/64638388-4bf5-4dc3-bd6d-f28f5778bc06" />
 
-<img width="500" height="300" alt="Screenshot 2025-12-25 162344" src="https://github.com/user-attachments/assets/38f4c166-9adc-488e-80a0-caa9e7a50c10" />
+<img width="800" height="400" alt="Screenshot 2025-12-25 162344" src="https://github.com/user-attachments/assets/38f4c166-9adc-488e-80a0-caa9e7a50c10" />
 
-<img width="500" height="300" alt="Screenshot 2025-12-25 162553" src="https://github.com/user-attachments/assets/eae931fb-e9a5-4595-88e5-87b211926ec0" />
+<img width="800" height="400" alt="Screenshot 2025-12-25 162553" src="https://github.com/user-attachments/assets/eae931fb-e9a5-4595-88e5-87b211926ec0" />
 
-<img width="500" height="300" alt="Screenshot 2025-12-25 162712" src="https://github.com/user-attachments/assets/4bb82f8c-3029-4616-8cc3-045750a5a8a5" />
+<img width="800" height="400" alt="Screenshot 2025-12-25 162712" src="https://github.com/user-attachments/assets/4bb82f8c-3029-4616-8cc3-045750a5a8a5" />
 
 ________________________________________
 **8. Future Enhancements**
