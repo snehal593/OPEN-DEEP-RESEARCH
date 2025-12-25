@@ -64,7 +64,7 @@ streamlit run main.py
 ________________________________________
 **3. Architecture Diagram**
    
- <img width="500" height="300" alt="Screenshot 2025-12-25 164810" src="https://github.com/user-attachments/assets/c6c7ba9d-2a72-493e-876b-0c7187ff2d9a" />
+ <img width="800" height="300" alt="Screenshot 2025-12-25 164810" src="https://github.com/user-attachments/assets/c6c7ba9d-2a72-493e-876b-0c7187ff2d9a" />
 
 ________________________________________
 **4. Workflow**
