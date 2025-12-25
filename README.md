@@ -36,7 +36,7 @@ ________________________________________
 
 **a. Clone the repository:**
 
-|**Bash**|
+|**Bash**| ---                                                    |
 |---     |
 |git clone https://github.com/your-username/OpenDeepResearcher.git|
 |cd OpenDeepResearcher|
