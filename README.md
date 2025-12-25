@@ -36,22 +36,26 @@ ________________________________________
 
 |**1. Clone the repository:**|
 |--- |
-|**git clone https://github.com/your-username/OpenDeepResearcher.git**|
-|**cd OpenDeepResearcher**|
+|git clone https://github.com/your-username/OpenDeepResearcher.git|
+|cd OpenDeepResearcher|
+
 
 |2. Create a Virtual environment:|
 |---  |
 |python -m venv venv|
 |source venv/bin/activate  | # On Windows: venv\Scripts\activate|
 
+
 |**3. Install Dependencies:**|
 |---  |
 |pip install -r requirements.txt|
+
 
 |**4. Environment Variables: Create a .env file or export your keys:**|
 |---  |
 |export GROQ_API_KEY='your_key_here'|
 |export TAVILY_API_KEY='your_key_here'|
+
 
 |**5. Run the Application:**|
 |---  |
