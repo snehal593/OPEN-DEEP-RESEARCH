@@ -34,9 +34,10 @@ ________________________________________
 ________________________________________
 **3. Installation & Setup**
 
-**a. Clone the repository:**
-
+|**a. Clone the repository:**|
+|--- |
 |git clone https://github.com/your-username/OpenDeepResearcher.git|
+|---  |
 |cd OpenDeepResearcher|
 
 **b. Create a Virtual environment:**
