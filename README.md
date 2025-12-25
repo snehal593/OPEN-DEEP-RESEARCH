@@ -40,6 +40,7 @@ streamlit run main.py
 
 ________________________________________
 3. Architecture Diagram
+![Architecture_Diagram](https://github.com/user-attachments/assets/d5910b47-707d-48a8-9ae0-582ca107d1ae)
  
 
 
