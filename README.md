@@ -1,8 +1,8 @@
-**OpenDeepResearcher: An Agentic Multi-Agent Research Framework**
+**OpenDeepResearcher: Agentic LLM Research Framework**
 ________________________________________
 **1. Project Overview**
 
-OpenDeepResearcher is an autonomous AI-driven research assistant designed to bridge the gap between static Large Language Models (LLMs) and the dynamic nature of the live web. Traditional LLMs are limited by knowledge cutoffs; this project solves that by utilizing an Agentic Workflow to autonomously plan, browse, and synthesize information into high-quality research reports.
+The OpenDeepResearcher is an autonomous AI system designed to conduct comprehensive web-based research.Unlike traditinal RAG(Retrieval-Augmented Generation) systems that perform simple keyword lookups,this project implements a **Multi_Agent WorkFlow**. It mimics a human research process by planning a strategy, searching multiple sources and synthesizing a structed report with citations.
 
 **Core Objective:** The goal was to solve the "hallucination" and "recency" problem of LLMs. By integrating Tavily’s Search API with a multi-agent state machine, the system ensures every claim in a research report is backed by real-time data and filtered through a multi-step verification process.
 ________________________________________
@@ -61,26 +61,10 @@ ________________________________________
 |---  |
 |streamlit run main.py|
 ________________________________________
-**3. Architecture Diagram**
+**4. Architecture Diagram**
    
  <img width="800" height="400" alt="Screenshot 2025-12-25 164810" src="https://github.com/user-attachments/assets/c6c7ba9d-2a72-493e-876b-0c7187ff2d9a" />
 
-________________________________________
-**4. Workflow**
-
-The system utilizes a Directed Acyclic Graph (DAG) to manage the logic flow:
-
-1.	**Entry Point:** The user submits a research topic or a file.
-   
-2.	**Routing:** A Router Node determines if the query requires a Full Research path or a Follow-up Analysis path based on chat history.
-   
-3.	**Planning:** The Planner Agent generates a multi-step roadmap.
-   
-4.	**Searching:** The Searcher Agent executes parallel web queries via Tavily.
-   
-5.	**Writing:** The Writer Agent synthesizes raw findings into a structured report.
-   
-6.	**Persistence:** The state is saved to a local database for continuity.
 ________________________________________
 **5. Agent Roles**
 
@@ -92,7 +76,33 @@ ________________________________________
 
 •	**Execution Graph:** Managed via LangGraph, it ensures that data flows seamlessly from one agent to the next using a shared TypedDict state.
 ________________________________________
-**6. Sample Working Demo**
+**6.Technical Implementaion Pillars**
+
+•**State Management:** LangGraph TypedDict for cross-agent memory.
+
+•**Structured Outputs:** Pydantic validation for JSON realiability.
+
+•**Real-Time Retrieval:** Tavily API integration for live web grounding.
+
+•**Persistence:** shelve database for seesion history
+________________________________________
+**7. Workflow**
+
+The system utilizes a Directed Acyclic Graph (DAG) to manage the logic flow: 
+
+1.	**Entry Point:** The user submits a research topic or a file.
+   
+3.	**Routing:** A Router Node determines if the query requires a Full Research path or a Follow-up Analysis path based on chat history.
+   
+5.	**Planning:** The Planner Agent generates a multi-step roadmap.
+   
+7.	**Searching:** The Searcher Agent executes parallel web queries via Tavily.
+   
+9.	**Writing:** The Writer Agent synthesizes raw findings into a structured report.
+
+6.	**Persistence:** The state is saved to a local database for continuity.
+________________________________________
+**8. Sample Working Demo**
 
 **Example Prompt: "Analyze the impact of Quantum Computing on current Cybersecurity encryption."**
 
@@ -102,7 +112,7 @@ ________________________________________
 
 •	Final Report: A structured 700-word report with dedicated sections on "Current Risks" and "Mitigation Strategies."
 ________________________________________
-**7. Outputs / Results**
+**9. Outputs / Results**
 
 <img width="800" height="400" alt="Screenshot 2025-12-25 162058" src="https://github.com/user-attachments/assets/0951980b-17f2-4e53-9169-1e121b8bb2fb" />
 
@@ -115,12 +125,14 @@ ________________________________________
 <img width="800" height="400" alt="Screenshot 2025-12-25 162712" src="https://github.com/user-attachments/assets/4bb82f8c-3029-4616-8cc3-045750a5a8a5" />
 
 ________________________________________
-**8. Future Enhancements**
+**10. Future Enhancements**
 
-•	Vector DB Integration: Implementing ChromaDB for long-term memory of all researched topics.
+• Vector DB Integration: Implementing ChromaDB for long-term memory of all researched topics.
 
-•	Multi-Modality: Enabling the agent to "see" and describe charts/graphs within uploaded PDFs.
+• Multi-Modality: Enabling the agent to "see" and describe charts/graphs within uploaded PDFs.
+
+• Parallelization: Moving from sequentical search to asynchronous parallel search for faster results.
 ________________________________________
-**9. Deployed Project Link**
+**11. Deployed Project Link**
 
 •	Live App: https://open-deep-research-a4pbbsas6ssq5szmn5ou4k.streamlit.app/
