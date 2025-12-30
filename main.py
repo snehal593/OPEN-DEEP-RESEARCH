@@ -1,9 +1,14 @@
-#This is the entry point for Streamlit. Run it using streamlit run main.py.
+# This is the entry point for Streamlit. Run it using streamlit run main.py.
 import os
-
 import streamlit as st
+from datetime import datetime
+from groq import Groq
+from tavily import TavilyClient
 
-# This code hides the GitHub icon AND the entire bottom bar (Crown/Globe/Footer)
+import utils
+import engine
+
+# --- UI Styling ---
 hide_st_style = """
             <style>
             #GithubIcon {visibility: hidden;}
@@ -17,21 +22,13 @@ hide_st_style = """
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
-
-
-
-from datetime import datetime
-from groq import Groq
-from tavily import TavilyClient
-
-import utils
-import engine
-
 def generate_chat_title(client, messages):
     context = ""
     for m in messages[:4]:
         role = "User" if m["role"] == "user" else "Assistant"
-        context += f"{role}: {m['content'][:200]}\n"
+        # Accessing content correctly based on the message tuple/dict structure
+        content = m["content"] if isinstance(m, dict) else m[1]
+        context += f"{role}: {content[:200]}\n"
     
     prompt = f"Provide a short 3-4 word descriptive title for this chat. No quotes.\n\n{context}"
     title = utils.get_llm_response(client, engine.MODEL, prompt, "Concise titling assistant.")
@@ -54,7 +51,7 @@ def run_research_app():
 
     # Init Session State
     if "messages" not in st.session_state:
-        st.session_state.messages = [{"role": "assistant", "content": "Welcome! I'm your research assistant. What topic should I research for you today?."}]
+        st.session_state.messages = [{"role": "assistant", "content": "Welcome! I'm your research assistant. What topic should I research for you today?"}]
     if "session_id" not in st.session_state:
         st.session_state.session_id = f"sid_{datetime.now().strftime('%Y%m%d_%H%M%S')}"
     if "current_title" not in st.session_state:
@@ -88,15 +85,20 @@ def run_research_app():
 
     # Chat UI
     for msg in st.session_state.messages:
-        with st.chat_message(msg["role"]): st.markdown(msg["content"])
+        with st.chat_message(msg["role"]): 
+            st.markdown(msg["content"])
 
     if prompt := st.chat_input("Ask me anything..."):
         st.session_state.messages.append({"role": "user", "content": prompt})
-        with st.chat_message("user"): st.markdown(prompt)
+        with st.chat_message("user"): 
+            st.markdown(prompt)
 
         with st.chat_message("assistant"):
-            with st.spinner("Researching..."):
+            # Use st.status for a professional agentic look
+            with st.status("🧠 Agentic Workflow Active...", expanded=True) as status:
+                st.write("📅 Planner: Analyzing request & designing roadmap...")
                 file_text = utils.extract_file_content(uploaded_file)
+                
                 inputs = engine.ResearchState(
                     topic=prompt + file_text,
                     structured_plan=None, sub_questions=[], research_results=[],
@@ -104,17 +106,29 @@ def run_research_app():
                     source_focus=src_focus, run_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                     messages=[(m["role"], m["content"]) for m in st.session_state.messages]
                 )
+                
+                st.write("🔍 Searcher: Scouring the web and analyzing files...")
+                # The actual execution happens here
                 result = st.session_state.app.invoke(inputs)
-                st.toast("Planner Agent is designing the roadmap...", icon="📅")
-                final_output = result["final_report"]
-                st.markdown(final_output)
-                st.session_state.messages.append({"role": "assistant", "content": final_output})
                 
-                if st.session_state.current_title == "New Chat":
-                    st.session_state.current_title = generate_chat_title(client, st.session_state.messages)
-                
-                utils.save_current_chat(st.session_state.session_id, st.session_state.current_title, st.session_state.messages)
-                st.rerun()
+                st.write("✍️ Writer: Synthesizing findings into final report...")
+                status.update(label="✅ Research Complete!", state="complete", expanded=False)
+            
+            # Display final report
+            final_output = result["final_report"]
+            st.markdown(final_output)
+            st.session_state.messages.append({"role": "assistant", "content": final_output})
+            
+            # Show the success toast
+            st.toast("Report generated successfully!", icon="📄")
+            
+            # Handle Title Generation
+            if st.session_state.current_title == "New Chat":
+                st.session_state.current_title = generate_chat_title(client, st.session_state.messages)
+            
+            # Save and Rerun
+            utils.save_current_chat(st.session_state.session_id, st.session_state.current_title, st.session_state.messages)
+            st.rerun()
 
 if __name__ == "__main__":
     run_research_app()
