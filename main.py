@@ -105,6 +105,7 @@ def run_research_app():
                     messages=[(m["role"], m["content"]) for m in st.session_state.messages]
                 )
                 result = st.session_state.app.invoke(inputs)
+                st.toast("Planner Agent is designing the roadmap...", icon="📅")
                 final_output = result["final_report"]
                 st.markdown(final_output)
                 st.session_state.messages.append({"role": "assistant", "content": final_output})
